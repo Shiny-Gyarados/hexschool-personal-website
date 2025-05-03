@@ -11,5 +11,5 @@ export default defineConfig({
             "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
         },
     },
-    base: process.env.NODE_ENV === "production" ? "/vite-react-pnpm/" : undefined,
+    base: process.env.NODE_ENV === "production" ? "/hexschool-personal-website/" : undefined,
 });
