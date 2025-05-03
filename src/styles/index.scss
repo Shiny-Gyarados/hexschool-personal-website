@@ -3,6 +3,7 @@
 @import "../../node_modules/bootstrap/scss/functions";
 
 // Default variable overrides
+@import "custom-variables-override";
 
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
