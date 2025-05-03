@@ -1,0 +1,32 @@
+// theme-colors map
+$gray-theme-colors: (
+    "gray": map-get($grays, "500"),
+);
+
+// @each $key, $value in $grays {
+//     $gray-theme-colors: map-merge(
+//         $gray-theme-colors,
+//         (
+//             "gray-#{$key}": $value,
+//         )
+//     );
+// }
+
+$theme-colors: map-merge($theme-colors, $gray-theme-colors);
+
+// spacers map
+$override-spacers: (
+    "3": $spacer * .75,
+    "4": $spacer,
+    "5": $spacer * 1.25,
+);
+
+// @for $i from 1 through 24 {
+//   $override-spacers: map-merge(
+//     $override-spacers,
+//     (
+//       "#{$i}": $spacer * 0.25 * $i
+//     )
+//   );
+// }
+$spacers: map-merge($spacers, $override-spacers);
