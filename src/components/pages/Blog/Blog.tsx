@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-function Blog(): React.JSX.Element {
+function Blog() {
     return (
         <Fragment>
             <h1>Blog</h1>
