@@ -11,14 +11,5 @@ export default defineConfig({
             "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
         },
     },
-    // css: {
-    //     preprocessorOptions: {
-    //         scss: {
-    //             api: "modern-compiler", // or "modern", "legacy"
-    //             importers: [
-    //                 // ...
-    //             ],
-    //         },
-    //     },
-    // },
+    base: process.env.NODE_ENV === "production" ? "/vite-react-pnpm/" : undefined,
 });
