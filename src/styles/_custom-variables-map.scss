@@ -1,3 +1,14 @@
+// break-points map
+$break-points: (
+    xs: 0,
+    sm: 425px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1440px,
+    xxl: 1600px,
+);
+$grid-breakpoints: map-merge($grid-breakpoints, $break-points);
+
 // theme-colors map
 $gray-theme-colors: (
     "gray": map-get($grays, "500"),
@@ -31,3 +42,11 @@ $override-spacers: (
 //   );
 // }
 $spacers: map-merge($spacers, $override-spacers);
+
+// font size map
+$override-font-sizes: (
+    "0": 52px,
+    "max": 120px,
+);
+
+$font-sizes: map-merge($font-sizes, $override-font-sizes);
