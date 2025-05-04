@@ -1,0 +1,45 @@
+@import "@/styles/utils";
+
+.about-me {
+    margin-top: -160px;
+    padding: 0px 12px;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        margin-top: -100px;
+        padding: 0px 24px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        padding: 0px 80px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "xxl")) {
+        margin-top: -160px;
+    }
+}
+
+.about-me-card {
+    padding: 40px 24px;
+    
+    &__text {
+        font-size: $font-size-base * 1.5;
+    }
+    
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        &__text {
+            font-size: $font-size-base * 1.75;
+        }
+    }
+    
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        margin-left: auto;
+        width: fit-content;
+        padding: 80px 40px;
+        
+        &__content {
+            width: 997px;
+        }
+    }
+}

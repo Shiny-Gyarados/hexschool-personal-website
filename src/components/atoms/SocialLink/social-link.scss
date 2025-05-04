@@ -1,0 +1,10 @@
+@import "@/styles/utils";
+
+.social-link {
+    font-size: 0px;
+    padding: 10px;
+    & > img {
+        width: 24px;
+        height: 24px;
+    }
+}
