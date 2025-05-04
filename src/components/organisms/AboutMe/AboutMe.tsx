@@ -4,27 +4,27 @@ import "./about-me.scss";
 const sharingLinks = [
     {
         href: "https://www.youtube.com/",
-        imgSrc: "/youtube.svg",
+        imgSrc: `${import.meta.env.VITE_BASE_NAME}/youtube.svg`,
         imgAlt: "Alyse's Youtube Link",
     },
     {
         href: "https://podcasts.apple.com/tw/browse",
-        imgSrc: "/podcast.svg",
+        imgSrc: `${import.meta.env.VITE_BASE_NAME}/podcast.svg`,
         imgAlt: "Alyse's Podcasts Link",
     },
     {
         href: "https://www.facebook.com/",
-        imgSrc: "/fb.svg",
+        imgSrc: `${import.meta.env.VITE_BASE_NAME}/fb.svg`,
         imgAlt: "Alyse's Facebook Link",
     },
     {
         href: "https://www.linkedin.com/",
-        imgSrc: "/linkedin.svg",
+        imgSrc: `${import.meta.env.VITE_BASE_NAME}/linkedin.svg`,
         imgAlt: "Alyse's LinedIn Link",
     },
     {
         href: "https://www.instagram.com/",
-        imgSrc: "/instagram.svg",
+        imgSrc: `${import.meta.env.VITE_BASE_NAME}/instagram.svg`,
         imgAlt: "Alyse's Instagram Link",
     },
 ];
