@@ -63,7 +63,7 @@ function ProfessionalService(): React.JSX.Element {
                 聯繫我，取得更多資訊！
             </h3>
             <a href="mailto:alyse-wang@gmail.com" className="d-block text-decoration-none w-fit ms-auto">
-                <img src="/arrow-right.svg" alt="取得更多資訊" />
+                <img src={`${import.meta.env.VITE_BASE_NAME}/arrow-right.svg`} alt="取得更多資訊" />
             </a>
         </section>
     );
