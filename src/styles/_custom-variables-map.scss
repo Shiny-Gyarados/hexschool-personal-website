@@ -11,7 +11,7 @@ $grid-breakpoints: map-merge($grid-breakpoints, $break-points);
 
 // theme-colors map
 $gray-theme-colors: (
-    "gray": map-get($grays, "500"),
+    "gray": #4b4b4b,
 );
 
 // @each $key, $value in $grays {
