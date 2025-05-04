@@ -41,7 +41,7 @@ jobs:
               run: pnpm install
             - name: Build
               env:
-                VITE_BASE_NAME: ${{ secrets.VITE_BASE_NAME }}
+                VITE_BASE_NAME: "/hexschool-personal-website"
               run: pnpm build
             - name: Setup Pages
               uses: actions/configure-pages@v5
