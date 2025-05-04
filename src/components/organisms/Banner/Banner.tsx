@@ -2,7 +2,7 @@ import "./banner.scss";
 
 function Banner(): React.JSX.Element {
     return (
-        <div className="container-fluid">
+        <section className="container-fluid">
             <div className="banner row">
                 <div className="col-12 col-md-6 px-0">
                     <div className="banner__avatar w-100 h-100"></div>
@@ -18,7 +18,7 @@ function Banner(): React.JSX.Element {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
