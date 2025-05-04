@@ -1,4 +1,4 @@
-@import "@/styles/index";
+@import "@/styles/utils";
 
 .banner__avatar {
     background: url("/bg-alyse-mobile.jpg") no-repeat center center / cover;
@@ -15,23 +15,23 @@
     & .banner__about-name {
         font-size: 52px;
     }
-    @media (min-width: map-get($break-points, "md")) {
+    @media (min-width: map-get($grid-breakpoints, "md")) {
         padding: 160px 32px;
         & .banner__about-name {
             font-size: 48px;
         }
     }
-    @media (min-width: map-get($break-points, "lg")) {
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
         & .banner__about-name {
             font-size: 60px;
         }
     }
-    @media (min-width: map-get($break-points, "xl")) {
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
         & .banner__about-name {
             font-size: 96px;
         }
     }
-    @media (min-width: map-get($break-points, "xxl")) {
+    @media (min-width: map-get($grid-breakpoints, "xxl")) {
         padding: 300px 80px;
         & .banner__about-name {
             font-size: 120px;

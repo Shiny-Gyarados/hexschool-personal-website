@@ -1,0 +1,21 @@
+// 這個文件只用於導出變數和 mixins，以及覆寫 bootstrap 的變數，不引入任何 CSS 樣式
+// 從 bootstrap 導入函數
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 導入自定義變數覆蓋
+@import "custom-variables-override";
+
+// 導入 bootstrap 變數
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// 導入自定義變數映射
+@import "custom-variables-map";
+
+// 導入 bootstrap maps 和 mixins
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+// 導入自定義工具映射
+@import "custom-utilities-map";
