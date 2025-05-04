@@ -1,0 +1,24 @@
+$font-weights: (
+    "900": 900,
+);
+
+// @for $i from 1 through 9 {
+//     $font-weights: map-merge(
+//         $font-weights,
+//         (
+//             "#{$i}00": $i * 100,
+//         )
+//     );
+// }
+
+$utilities: map-merge(
+    $utilities,
+    (
+        "font-weight": map-merge(
+                map-get($utilities, "font-weight"),
+                (
+                    values: map-merge(map-get($utilities, "font-weight", "values"), $font-weights),
+                )
+            ),
+    )
+);

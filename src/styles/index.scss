@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
 // scss-docs-start import-stack
 // Configuration
 @import "../../node_modules/bootstrap/scss/functions";
@@ -14,6 +16,9 @@
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
+
+// Utilities map overrides
+@import "custom-utilities-map";
 
 // Layout & components
 @import "../../node_modules/bootstrap/scss/root";
@@ -54,3 +59,4 @@
 // Utilities
 @import "../../node_modules/bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
+@import "base";
