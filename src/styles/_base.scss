@@ -1,3 +1,5 @@
+@import "@/styles/utils";
+
 * {
     font-family:
         "Noto Sans TC",
@@ -23,3 +25,10 @@
     height: fit-content;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: $black;
+}
+
+p {
+    color: map-get($theme-colors, "gray");
+}
