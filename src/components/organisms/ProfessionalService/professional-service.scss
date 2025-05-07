@@ -3,6 +3,10 @@
 .professional-service {
     padding-top: $spacer * 4;
     padding-bottom: $spacer * 4;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding-top: $spacer * 5;
+        padding-bottom: $spacer * 5;
+    }
 }
 
 .professional-service__title {
