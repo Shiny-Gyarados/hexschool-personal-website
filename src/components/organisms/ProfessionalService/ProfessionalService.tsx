@@ -1,9 +1,10 @@
+import { BASE_NAME } from "@/configs/global_configs";
 import "./professional-service.scss";
 
 const professionalServiceDatas = [
     {
         id: 1,
-        imgSrc: `${import.meta.env.VITE_BASE_NAME}/resume-checking.png`,
+        imgSrc: `${BASE_NAME}/resume-checking.png`,
         imgAlt: "履歷健檢",
         title: "履歷健檢",
         description:
@@ -11,14 +12,14 @@ const professionalServiceDatas = [
     },
     {
         id: 2,
-        imgSrc: `${import.meta.env.VITE_BASE_NAME}/online-console.png`,
+        imgSrc: `${BASE_NAME}/online-console.png`,
         imgAlt: "線上諮詢",
         title: "線上諮詢",
         description: "想快速解決前端學習瓶頸，或需要專業職涯指引？透過線上一對一諮詢，我將協助你更有方向地邁進。",
     },
     {
         id: 3,
-        imgSrc: `${import.meta.env.VITE_BASE_NAME}/web-development.png`,
+        imgSrc: `${BASE_NAME}/web-development.png`,
         imgAlt: "網頁開發",
         title: "網頁開發",
         description:
@@ -26,7 +27,7 @@ const professionalServiceDatas = [
     },
     {
         id: 4,
-        imgSrc: `${import.meta.env.VITE_BASE_NAME}/training.png`,
+        imgSrc: `${BASE_NAME}/training.png`,
         imgAlt: "企業內訓",
         title: "企業內訓",
         description:
@@ -62,7 +63,7 @@ function ProfessionalService(): React.JSX.Element {
             <div className="professional-service__contact">
                 <h3 className="professional-service__contact-title fs-3 fw-bold lh-base">聯繫我，取得更多資訊！</h3>
                 <a href="mailto:alyse-wang@gmail.com" className="d-block text-decoration-none">
-                    <img src={`${import.meta.env.VITE_BASE_NAME}/arrow-right.svg`} alt="取得更多資訊" />
+                    <img src={`${BASE_NAME}/arrow-right.svg`} alt="取得更多資訊" />
                 </a>
             </div>
         </section>
