@@ -59,12 +59,12 @@ function ProfessionalService(): React.JSX.Element {
                     </div>
                 );
             })}
-            <h3 className="professional-service__contact-title fs-3 fw-bold lh-base text-end">
-                聯繫我，取得更多資訊！
-            </h3>
-            <a href="mailto:alyse-wang@gmail.com" className="d-block text-decoration-none w-fit ms-auto">
-                <img src={`${import.meta.env.VITE_BASE_NAME}/arrow-right.svg`} alt="取得更多資訊" />
-            </a>
+            <div className="professional-service__contact">
+                <h3 className="professional-service__contact-title fs-3 fw-bold lh-base">聯繫我，取得更多資訊！</h3>
+                <a href="mailto:alyse-wang@gmail.com" className="d-block text-decoration-none">
+                    <img src={`${import.meta.env.VITE_BASE_NAME}/arrow-right.svg`} alt="取得更多資訊" />
+                </a>
+            </div>
         </section>
     );
 }

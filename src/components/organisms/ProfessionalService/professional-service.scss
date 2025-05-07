@@ -72,3 +72,20 @@
         border-radius: 2.5px;
     }
 }
+
+.professional-service__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        .professional-service__contact-title {
+            margin-bottom: 0;
+            margin-right: $spacer * 0.5;
+        }
+    }
+}
+
+
