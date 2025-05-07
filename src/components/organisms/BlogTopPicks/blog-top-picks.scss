@@ -5,4 +5,8 @@
     padding-bottom: $spacer * 4;
     border-top: 1px solid map-get($grays, "600");
     border-bottom: 1px solid map-get($grays, "600");
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding-top: $spacer * 5;
+        padding-bottom: $spacer * 5;
+    }
 }

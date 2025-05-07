@@ -3,8 +3,10 @@ import "./blog-top-picks.scss";
 
 function BlogTopPicks(): React.JSX.Element {
     return (
-        <section className="blog-top-picks container">
-            <Title className="mb-6">部落格精選</Title>
+        <section className="blog-top-picks">
+            <div className="container">
+                <Title className="mb-6">部落格精選</Title>
+            </div>
         </section>
     );
 }
