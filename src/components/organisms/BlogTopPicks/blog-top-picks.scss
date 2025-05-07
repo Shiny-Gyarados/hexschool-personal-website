@@ -1,0 +1,8 @@
+@import "@/styles/utils";
+
+.blog-top-picks {
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+    border-top: 1px solid map-get($grays, "600");
+    border-bottom: 1px solid map-get($grays, "600");
+}
