@@ -40,13 +40,13 @@ function ProfessionalService(): React.JSX.Element {
             <h2 className="professional-service__title fw-bold lh-base">專業服務與方案</h2>
             {professionalServiceDatas.map((professionalServiceData) => {
                 return (
-                    <div className="professional-service__item row" key={professionalServiceData.id}>
-                        <div className="col-12">
+                    <div className="professional-service__item row align-items-center" key={professionalServiceData.id}>
+                        <div className="col-12 col-lg-6">
                             <div className="professional-service__image-wrap">
                                 <img src={professionalServiceData.imgSrc} alt={professionalServiceData.imgAlt} />
                             </div>
                         </div>
-                        <div className="col-12">
+                        <div className="professional-service__content-wrap position-relative z-1">
                             <div className="professional-service__content p-6 bg-white">
                                 <h3 className="professional-service__content-title fs-3 fw-bold lh-base">
                                     {professionalServiceData.title}
