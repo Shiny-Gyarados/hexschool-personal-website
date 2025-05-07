@@ -1,0 +1,10 @@
+@import "@/styles/utils";
+
+.title {
+    font-size: $font-size-base * 3;
+    margin-bottom: $spacer * 2;
+    position: relative;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        font-size: $font-size-base * 4;
+    }
+}

@@ -1,4 +1,5 @@
 import { BASE_NAME } from "@/configs/global_configs";
+import Title from "@/components/atoms/Title";
 import "./professional-service.scss";
 
 const professionalServiceDatas = [
@@ -38,7 +39,7 @@ const professionalServiceDatas = [
 function ProfessionalService(): React.JSX.Element {
     return (
         <section className="professional-service container">
-            <h2 className="professional-service__title fw-bold lh-base">專業服務與方案</h2>
+            <Title>專業服務與方案</Title>
             {professionalServiceDatas.map((professionalServiceData) => {
                 return (
                     <div className="professional-service__item row align-items-center" key={professionalServiceData.id}>
