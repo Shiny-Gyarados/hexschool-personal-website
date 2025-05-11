@@ -6,7 +6,7 @@ tags:
 title: 穩定前端環境的祕訣：依賴管理與自動化流程
 description: 建立穩定且高效的前端開發環境是每個團隊的目標。本文將分享如何有效管理專案依賴，並透過自動化流程提升開發效率，讓你的前端專案更加穩定可靠。
 language: zh-TW
-date: 2024-07-14T10:00:00Z
+date: 2024-02-17T10:25:00Z
 image: /frontend_env_dependency_automation.png
 ---
 

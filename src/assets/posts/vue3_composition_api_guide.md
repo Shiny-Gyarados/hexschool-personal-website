@@ -6,7 +6,7 @@ tags:
 title: Vue 3 新手指南：快速掌握 Composition API 與關鍵特色
 description: Vue 3 的 Composition API 為開發者帶來了更靈活的程式碼組織方式。本文將帶你深入了解 Composition API 的核心概念，並透過實際範例展示如何運用這些新特性來提升開發效率。
 language: zh-TW
-date: 2024-07-11T10:00:00Z
+date: 2024-06-29T10:31:00Z
 image: /vue3_composition_api_guide.png
 ---
 

@@ -6,7 +6,7 @@ tags:
 title: 掌握前端測試：從單元測試到端對端測試的完整攻略
 description: 前端測試是確保應用程式品質的重要環節。本文將全面介紹前端測試的各個層面，從單元測試到端對端測試，幫助你建立完整的測試策略，提升專案品質。
 language: zh-TW
-date: 2024-07-16T10:00:00Z
+date: 2024-02-07T06:16:00Z
 image: /frontend_testing_guide.png
 ---
 

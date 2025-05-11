@@ -6,7 +6,7 @@ tags:
 title: SEO 與前端最佳實踐：讓搜尋引擎看見你的網站
 description: 前端開發不僅要注重使用者體驗，更要考慮搜尋引擎優化。本文將分享前端開發中的 SEO 最佳實踐，幫助你的網站在搜尋引擎中獲得更好的排名。
 language: zh-TW
-date: 2024-07-13T10:00:00Z
+date: 2024-05-01T12:24:00Z
 image: /seo_best_practices_frontend.png
 ---
 

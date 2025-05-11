@@ -6,7 +6,7 @@ tags:
 title: Git 與版本控制：前端協作的必修課
 description: 在現代前端開發中，Git 已成為不可或缺的工具。本文將從基礎概念出發，深入探討 Git 在前端專案中的最佳實踐，幫助你建立更有效率的團隊協作流程。
 language: zh-TW
-date: 2024-07-12T10:00:00Z
+date: 2024-05-04T03:48:00Z
 image: /git_version_control_for_frontend.png
 ---
 
