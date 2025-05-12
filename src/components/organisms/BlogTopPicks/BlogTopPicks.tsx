@@ -1,21 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Title from "@/components/atoms/Title";
 import { useQuery } from "@tanstack/react-query";
 import getPostList from "@/api/getPostList";
 import ArticleCard from "@/components/molecules/ArticleCard";
 import ArrowLeftButtonSVG from "@/components/atoms/ArrowLeftButtonSVG";
 import ArrowRightButtonSVG from "@/components/atoms/ArrowRightButtonSVG";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { DEVICE_BREAKPOINT } from "@/types/common";
 import "./blog-top-picks.scss";
 
 function BlogTopPicks(): React.JSX.Element {
+    const isDesktop = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.XL}px)`);
+    const isTablet = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.LG}px)`);
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["postList", "page=1", "limit=9", "sort=date", "order=desc"],
         queryFn: () => getPostList({ page: "1", limit: "9", sort: "date", order: "desc" }),
         select: (data) => data.data,
     });
-    // todo: 這邊要改成動態
-    const [columnsPerPage] = useState(3);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const columnsPerPage = useMemo(() => {
+        if (isDesktop) {
+            return 3;
+        } else if (isTablet === true && isDesktop === false) {
+            return 2;
+        }
+        return 1;
+    }, [isDesktop, isTablet]);
+
+    useEffect(() => {
+        if (Array.isArray(data)) {
+            if (currentIndex > data.length - columnsPerPage) {
+                setCurrentIndex(data.length - columnsPerPage);
+            }
+        }
+    }, [isDesktop, currentIndex, data, columnsPerPage]);
 
     return (
         <section className="blog-top-picks">
