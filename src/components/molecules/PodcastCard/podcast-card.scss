@@ -1,0 +1,16 @@
+@import "@/styles/utils";
+
+.podcast-card__main-points {
+    border-bottom: 1px solid #000;
+    & > li {
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+        & > input {
+            accent-color: $primary;
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+    }
+}

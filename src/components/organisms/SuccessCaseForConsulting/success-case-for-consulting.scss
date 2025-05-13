@@ -1,0 +1,114 @@
+@import "@/styles/utils";
+
+.success-case-for-consulting {
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding-top: $spacer * 5;
+        padding-bottom: $spacer * 5;
+    }
+}
+
+.success-case-for-consulting__introduction {
+    margin-bottom: 40px;
+}
+
+.success-consulting__image-wrap {
+    background-color: #ededed;
+    & > picture {
+        width: 100%;
+        height: 100%;
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        aspect-ratio: 745 / 626;
+        max-height: 626px;
+    }
+}
+
+.success-consulting__content-wrap {
+    margin-top: -160px;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        margin-top: 0px;
+    }
+}
+
+.success-consulting__content {
+    background-color: #ededed;
+    padding: 40px 24px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    & > p {
+        color: $black;
+        &::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 2.5px;
+            background-color: $primary;
+            margin: 18.75px 5px 42.75px;
+            border-radius: 2.5px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        margin-bottom: 0px;
+        position: relative;
+        top: 16px;
+        right: calc(100% * 196 / 475);
+        z-index: 1;
+    }
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        top: 29px;
+        padding: 80px 40px;
+    }
+}
+
+.success-consulting__contact {
+    background-color: #f5f5f5;
+    padding: 40px 24px;
+    color: $black;
+    & > p {
+        color: $black;
+        &::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 2.5px;
+            background-color: $primary;
+            margin: 18.75px 5px 42.75px;
+            border-radius: 2.5px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        position: relative;
+        bottom: 16px;
+        z-index: 2;
+    }
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        bottom: 29px;
+        padding: 80px 40px;
+    }
+}
+
+.success-consulting__contact-link {
+    color: $primary;
+    outline-color: $primary;
+    background-color: $white;
+    font-weight: 700;
+}
+
+.success-case-for-consulting__podcast-wrap {
+    background-color: #f5f5f5;
+}
+
+.success-case-for-consulting__main-points {
+    border-bottom: 1px solid #000;
+    & > li:not(:last-child) {
+        margin-bottom: 8px;
+    }
+}
