@@ -3,6 +3,7 @@ import AboutMe from "@/components/organisms/AboutMe";
 import ProfessionalService from "@/components/organisms/ProfessionalService";
 import BlogTopPicks from "@/components/organisms/BlogTopPicks";
 import SuccessCaseForConsulting from "@/components/organisms/SuccessCaseForConsulting";
+import EmailSubscriptionForm from "@/components/organisms/EmailSubscriptionForm";
 
 function Home(): React.JSX.Element {
     return (
@@ -12,6 +13,7 @@ function Home(): React.JSX.Element {
             <ProfessionalService />
             <BlogTopPicks />
             <SuccessCaseForConsulting />
+            <EmailSubscriptionForm />
         </main>
     );
 }

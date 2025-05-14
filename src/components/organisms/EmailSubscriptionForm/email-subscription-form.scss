@@ -1,0 +1,58 @@
+@import "@/styles/utils";
+
+.email-subscription-form__avatar {
+    background: url("/alyse-smile.jpg") no-repeat center center / cover;
+    padding-top: 100%;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding-top: 0px;
+        max-height: 834px;
+    }
+}
+
+.email-subscription-form__subscription {
+    background: url("/email-bg.jpg") no-repeat center center / 100% 100%;
+    padding: 12px;
+    .email-subscription-form__subscription-content {
+        background: #fff;
+        padding: 40px 24px;
+    }
+    .email-subscription-form__subscription-description {
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333;
+    }
+    .email-subscription-form__form {
+        & input {
+            background-color: #f1f1f1;
+            outline: none;
+            border: none;
+            padding: 11px 16px;
+        }
+        & button[type="submit"] {
+            color: $primary;
+            outline: 1px solid $primary;
+            border-radius: calc(infinity * 1px);
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: 24px;
+        & h2 {
+            font-size: 48px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+        padding: 36px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        padding: 172px 80px;
+        & h2 {
+            font-size: 64px;
+        }
+        & .email-subscription-form__subscription-content {
+            padding: 80px;
+        }
+    }
+}
+
+
+
