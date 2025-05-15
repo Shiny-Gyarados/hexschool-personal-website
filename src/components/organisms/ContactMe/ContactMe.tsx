@@ -74,7 +74,7 @@ function ContactMe(): React.JSX.Element {
                                 >
                                     <div className="d-flex fs-4 align-items-center mb-2">
                                         <SocialLink
-                                            href={sharingLink.href}
+                                            isLink={false}
                                             imgSrc={sharingLink.imgSrc}
                                             imgAlt={sharingLink.imgAlt}
                                         />
