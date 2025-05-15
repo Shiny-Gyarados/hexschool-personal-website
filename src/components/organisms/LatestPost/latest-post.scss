@@ -1,0 +1,34 @@
+@import "@/styles/utils";
+
+.latest-post {
+    margin-top: -160px;
+    max-height: 640px;
+    .latest-post__image {
+        aspect-ratio: 1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding-left: 0px;
+        padding-right: 0px;
+        max-height: 640px;
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    .article-card__content {
+        padding: 48px 0px;
+        max-width: 636px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        margin-top: 0px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+        .latest-post__image {
+            padding-right: 12px;
+            aspect-ratio: 948/640;
+        }
+    }
+}
