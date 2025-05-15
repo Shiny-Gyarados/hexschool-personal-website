@@ -13,8 +13,8 @@ function BlogTopPicks(): React.JSX.Element {
     const isDesktop = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.XL}px)`);
     const isTablet = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.LG}px)`);
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["postList", "page=1", "limit=9", "sort=date", "order=desc"],
-        queryFn: () => getPostList({ page: "1", limit: "9", sort: "date", order: "desc" }),
+        queryKey: ["postList", "page=1", "limit=10", "sort=date", "order=desc"],
+        queryFn: () => getPostList({ page: "1", limit: "10", sort: "date", order: "desc" }),
         select: (data) => data.data,
     });
     const [currentIndex, setCurrentIndex] = useState(0);
