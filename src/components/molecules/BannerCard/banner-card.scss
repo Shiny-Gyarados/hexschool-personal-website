@@ -1,0 +1,40 @@
+@import "@/styles/utils";
+
+.banner-card__avatar {
+    background: url("/bg-alyse-mobile.jpg") no-repeat 0 0 / cover;
+    padding-top: 100%;
+    @media (min-width: 768px) {
+        padding-top: 0px;
+        max-height: 834px;
+    }
+}
+
+.banner-card__about {
+    background: url("/bg-banner-mobile-rotate.jpg") no-repeat center center / 100% 100%;
+    padding: 24px 24px 200px;
+    & .banner-card__about-name {
+        font-size: 52px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: 160px 32px;
+        & .banner-card__about-name {
+            font-size: 48px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+        & .banner-card__about-name {
+            font-size: 60px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        & .banner-card__about-name {
+            font-size: 96px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "xxl")) {
+        padding: 300px 80px;
+        & .banner-card__about-name {
+            font-size: 120px;
+        }
+    }
+}

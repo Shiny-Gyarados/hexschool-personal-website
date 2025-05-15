@@ -1,10 +1,10 @@
-import { Fragment } from "react";
+import BlogBanner from "@/components/organisms/BlogBanner";
 
 function Blog() {
     return (
-        <Fragment>
-            <h1>Blog</h1>
-        </Fragment>
+        <main>
+            <BlogBanner />
+        </main>
     );
 }
 
