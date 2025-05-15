@@ -1,0 +1,18 @@
+@import "@/styles/utils";
+
+.contact-me {
+    padding: $spacer * 4 0px;
+    .contact-me__arrow-right-wrap {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-me__item {
+        border-bottom: 1px solid $black;
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: $spacer * 5 0px;
+    }
+}

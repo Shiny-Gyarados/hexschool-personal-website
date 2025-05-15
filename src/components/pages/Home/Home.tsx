@@ -4,6 +4,7 @@ import ProfessionalService from "@/components/organisms/ProfessionalService";
 import BlogTopPicks from "@/components/organisms/BlogTopPicks";
 import SuccessCaseForConsulting from "@/components/organisms/SuccessCaseForConsulting";
 import EmailSubscriptionForm from "@/components/organisms/EmailSubscriptionForm";
+import ContactMe from "@/components/organisms/ContactMe";
 
 function Home(): React.JSX.Element {
     return (
@@ -14,6 +15,7 @@ function Home(): React.JSX.Element {
             <BlogTopPicks />
             <SuccessCaseForConsulting />
             <EmailSubscriptionForm />
+            <ContactMe />
         </main>
     );
 }
