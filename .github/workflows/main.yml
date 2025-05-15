@@ -42,6 +42,7 @@ jobs:
             - name: Build
               env:
                 VITE_BASE_NAME: "/hexschool-personal-website"
+                VITE_API_DOMAIN: "https://hex-srv.hlkw.me"
               run: pnpm build
             - name: Setup Pages
               uses: actions/configure-pages@v5
