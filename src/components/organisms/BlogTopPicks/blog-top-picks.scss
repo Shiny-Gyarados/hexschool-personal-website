@@ -3,8 +3,12 @@
 .blog-top-picks {
     padding-top: $spacer * 4;
     padding-bottom: calc($spacer * 4 + 76px);
-    border-top: 1px solid map-get($grays, "600");
-    border-bottom: 1px solid map-get($grays, "600");
+    border-top-width: 2px;
+    border-bottom-width: 0px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: map-get($grays, "600");
     @media (min-width: map-get($grid-breakpoints, "md")) {
         padding-top: $spacer * 5;
         padding-bottom: calc($spacer * 5 + 76px);

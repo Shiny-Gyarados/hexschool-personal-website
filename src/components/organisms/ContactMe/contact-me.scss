@@ -1,6 +1,12 @@
 @import "@/styles/utils";
 
 .contact-me {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: map-get($grays, "600");
     padding: $spacer * 4 0px;
     .contact-me__arrow-right-wrap {
         width: 24px;
