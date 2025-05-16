@@ -3,8 +3,6 @@ category: frontend
 tags:
     - TypeScript
     - 程式設計
-    - 前端開發
-    - JavaScript
 title: TypeScript 快速上手：強化前端程式碼的安全與可讀性
 description: TypeScript 為 JavaScript 帶來了型別系統，大幅提升了程式碼的可維護性。本文將帶你從基礎開始，逐步掌握 TypeScript 的核心概念，並學會如何在前端專案中有效運用。
 language: zh-TW
