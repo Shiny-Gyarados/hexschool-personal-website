@@ -8,6 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const Home = lazy(() => import("@/components/pages/Home"));
 const Blog = lazy(() => import("@/components/pages/Blog"));
+const Post = lazy(() => import("@/components/pages/Post"));
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -26,6 +27,7 @@ function App() {
                     <Route element={<BasicLayout />}>
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/post/:id" element={<Post />} />
                     </Route>
                 </Routes>
                 <ReactQueryDevtools initialIsOpen={false} />
