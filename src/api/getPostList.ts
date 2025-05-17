@@ -5,17 +5,32 @@ async function getPostList({
     limit = "9",
     sort = "date",
     order = "desc",
+    title = "",
+    description = "",
+    search = "",
 }: {
     page?: string;
     limit?: string;
     sort?: string;
     order?: string;
+    title?: string;
+    description?: string;
+    search?: string;
 }) {
     const params = new URLSearchParams();
     params.set("page", page);
     params.set("limit", limit);
     params.set("sort", sort);
     params.set("order", order);
+    if (title && title !== "") {
+        params.set("title", title);
+    }
+    if (description && description !== "") {
+        params.set("description", description);
+    }
+    if (search && search !== "") {
+        params.set("search", search);
+    }
     const response = await fetch(`${API_PREFIX}/post/list?${params.toString()}`);
     const data = (await response.json()) as PostListResponse;
     return data;

@@ -1,0 +1,36 @@
+@import "@/styles/utils";
+
+.blog-list {
+    padding: $spacer * 4 0px;
+    .blog-list__search-bar {
+        margin-bottom: 40px;
+    }
+    .blog-list__list {
+        margin-bottom: -32px;
+    }
+    .blog-list__item {
+        margin-bottom: 32px;
+    }
+    .blog-list__pagination {
+        margin-top: 40px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: $spacer * 5 0px;
+    }
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+        .blog-list__list {
+            margin-bottom: -60px;
+        }
+        .blog-list__item {
+            margin-bottom: 60px;
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+        .blog-list__list {
+            margin-bottom: -80px;
+        }
+        .blog-list__item {
+            margin-bottom: 80px;
+        }
+    }
+}

@@ -6,7 +6,7 @@ import "./latest-post.scss";
 
 function LatestPost(): React.JSX.Element {
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["postList", "page=1", "limit=10", "sort=date", "order=desc"],
+        queryKey: ["postList", "page=1", "limit=10", "sort=date", "order=desc", "search="],
         queryFn: () => getPostList({ page: "1", limit: "10", sort: "date", order: "desc" }),
         select: (data) => data.data,
     });

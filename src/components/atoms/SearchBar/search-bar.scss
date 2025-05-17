@@ -1,0 +1,13 @@
+@import "@/styles/utils";
+
+.search-bar {
+    border: 1px solid map-get($theme-colors, "gray");
+    border-radius: calc(infinity * 1px);
+    
+    & .search-bar__input {
+        outline: none;
+        border: none;
+        margin-left: 10px;
+        padding: 15px 0px;
+    }
+}

@@ -9,12 +9,17 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { DEVICE_BREAKPOINT } from "@/types/common";
 import "./blog-top-picks.scss";
 
+const PAGE = 1;
+const LIMIT = 10;
+const SORT = "date";
+const ORDER = "desc";
+
 function BlogTopPicks(): React.JSX.Element {
     const isDesktop = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.XL}px)`);
     const isTablet = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.LG}px)`);
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["postList", "page=1", "limit=10", "sort=date", "order=desc"],
-        queryFn: () => getPostList({ page: "1", limit: "10", sort: "date", order: "desc" }),
+        queryKey: ["postList", `page=${PAGE}`, `limit=${LIMIT}`, `sort=${SORT}`, `order=${ORDER}`, `search=`,],
+        queryFn: () => getPostList({ page: `${PAGE}`, limit: `${LIMIT}`, sort: SORT, order: ORDER }),
         select: (data) => data.data,
     });
     const [currentIndex, setCurrentIndex] = useState(0);
