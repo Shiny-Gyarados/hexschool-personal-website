@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { BASE_NAME } from "@/configs/global_configs";
 import type { PostInfo } from "@/types/post";
 import "./article-card.scss";
@@ -7,7 +8,7 @@ interface ArticleCardProps {
     data: PostInfo;
 }
 
-function ArticleCard({ data: { frontmatter } }: ArticleCardProps) {
+function ArticleCard({ data: { frontmatter, id } }: ArticleCardProps) {
     const date = useMemo(() => new Date(frontmatter.date), [frontmatter.date]);
     const year = useMemo(() => date.getFullYear(), [date]);
     const month = useMemo(() => date.getMonth() + 1, [date]);
@@ -28,10 +29,12 @@ function ArticleCard({ data: { frontmatter } }: ArticleCardProps) {
                 </ul>
                 <h3 className="article-card__title fw-bold line-clamp-2">{frontmatter.title}</h3>
                 <p className="article-card__description line-clamp-2">{frontmatter.description}</p>
-                {/* todo: 這邊要改成動態 */}
-                <a href="#" className="article-card__read-more d-inline-block w-fit px-4 py-2 text-decoration-none">
+                <Link
+                    to={`/post/${id}`}
+                    className="article-card__read-more d-inline-block w-fit px-4 py-2 text-decoration-none"
+                >
                     閱讀內文
-                </a>
+                </Link>
             </div>
         </div>
     );
