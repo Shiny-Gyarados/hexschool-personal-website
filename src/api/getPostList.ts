@@ -8,6 +8,7 @@ async function getPostList({
     title = "",
     description = "",
     search = "",
+    signal,
 }: {
     page?: string;
     limit?: string;
@@ -16,6 +17,7 @@ async function getPostList({
     title?: string;
     description?: string;
     search?: string;
+    signal?: AbortSignal;
 }) {
     const params = new URLSearchParams();
     params.set("page", page);
@@ -31,7 +33,7 @@ async function getPostList({
     if (search && search !== "") {
         params.set("search", search);
     }
-    const response = await fetch(`${API_PREFIX}/post/list?${params.toString()}`);
+    const response = await fetch(`${API_PREFIX}/post/list?${params.toString()}`, { signal });
     const data = (await response.json()) as PostListResponse;
     return data;
 }

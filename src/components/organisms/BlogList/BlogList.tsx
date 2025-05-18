@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import getPostList from "@/api/getPostList";
 import { useQuery } from "@tanstack/react-query";
@@ -15,34 +15,70 @@ const ORDER = "desc";
 function BlogList() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
-    const [searchValue, setSearchValue] = useState("");
+    const [page, setPage] = useState<number>(() => {
+        const pageParam = parseInt(searchParams.get("page") + "");
+        return isNaN(pageParam) ? PAGE : pageParam;
+    });
+    // input 的值
+    const [searchValue, setSearchValue] = useState(() => searchParams.get("search") ?? "");
+    // debounce 後要傳給 api 的值
+    const [searchValueForQuery, setSearchValueForQuery] = useState(searchValue);
+    const timeRef = useRef<NodeJS.Timeout | null>(null);
     const { data, isFetching, isError, error } = useQuery({
         queryKey: [
             "postList",
-            `page=${searchParams.get("page") ?? PAGE}`,
+            `page=${page}`,
             `limit=${LIMIT}`,
             `sort=${SORT}`,
             `order=${ORDER}`,
-            `search=${searchValue}`,
+            `search=${searchValueForQuery}`,
         ],
-        queryFn: () =>
+        queryFn: ({ signal }) =>
             getPostList({
-                page: `${searchParams.get("page") ?? PAGE}`,
+                page: `${page}`,
                 limit: `${LIMIT}`,
                 sort: SORT,
                 order: ORDER,
-                search: searchValue,
+                search: searchValueForQuery,
+                signal,
             }),
     });
+    function searchValueChangeHandler(newValue: string) {
+        setSearchValue(newValue);
+    }
+    useEffect(() => {
+        timeRef.current = setTimeout(() => {
+            const hash = window.location.hash;
+            const [path, rawQuery = ""] = hash.slice(1).split("?");
+            const params = new URLSearchParams(rawQuery);
+            params.set("page", "1");
+            if (searchValue) {
+                params.set("search", searchValue);
+            } else {
+                params.delete("search");
+            }
+
+            const newHash = `#${path}?${params.toString()}`;
+            window.history.replaceState({}, "", newHash);
+            setPage(1);
+            setSearchValueForQuery(searchValue);
+        }, 300);
+        return () => {
+            if (timeRef.current) {
+                clearTimeout(timeRef.current);
+            }
+        };
+    }, [searchValue]);
     return (
         <div className="blog-list">
             <div className="container">
                 <div className="blog-list__search-bar row">
                     <div className="col-12 col-lg-6 col-xl-4">
-                        <SearchBar value={searchValue} onChange={setSearchValue} />
+                        <SearchBar value={searchValue} onChange={searchValueChangeHandler} />
                     </div>
                 </div>
                 {isFetching ? (
+                    // todo: 要顯示 skeleton
                     <p>Loading...</p>
                 ) : isError ? (
                     <p>{error.message}</p>
@@ -64,8 +100,9 @@ function BlogList() {
                     <Pagination
                         totalPages={data.pagination?.totalPages ?? 1}
                         maxDisplayedPages={6}
-                        currentPage={data.pagination?.currentPage ?? 1}
+                        currentPage={page}
                         onPageChange={(page) => {
+                            setPage(page);
                             navigate(`/blog?page=${page}`);
                         }}
                     />
