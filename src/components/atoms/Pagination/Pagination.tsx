@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import clsx from "clsx";
 import { BASE_NAME } from "@/configs/global_configs";
 import "./pagination.scss";
@@ -25,6 +25,10 @@ function Pagination({ currentPage = 1, totalPages, maxDisplayedPages = 5, onPage
         const endPage = Math.min(totalPages, startPage + maxDisplayedPages - 1);
         return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
     }, [pageNumber, totalPages, maxDisplayedPages]);
+
+    useEffect(() => {
+        setPageNumber(currentPage ?? 1);
+    }, [currentPage]);
 
     return (
         <div className="pagination bg-white d-flex align-items-center">
