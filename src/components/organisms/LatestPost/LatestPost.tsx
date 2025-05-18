@@ -46,13 +46,7 @@ function LatestPost(): React.JSX.Element {
                                         <p className="article-card__description line-clamp-2">
                                             {data[0].frontmatter.description}
                                         </p>
-                                        {/* todo: 這邊要改成動態 */}
-                                        <ReadMoreLink
-                                            href="#"
-                                            // className="article-card__read-more d-inline-block w-fit px-4 py-2 text-decoration-none"
-                                        >
-                                            閱讀內文
-                                        </ReadMoreLink>
+                                        <ReadMoreLink href={`/post/${data[0].id}`}>閱讀內文</ReadMoreLink>
                                     </div>
                                 </div>
                             </div>
