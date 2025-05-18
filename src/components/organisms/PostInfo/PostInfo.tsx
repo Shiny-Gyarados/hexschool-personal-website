@@ -40,7 +40,7 @@ function PostInfo(): React.JSX.Element {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <h3 className="fw-bold line-clamp-2">{data.frontmatter.title}</h3>
+                                        <h1 className="fs-3 fw-bold line-clamp-2">{data.frontmatter.title}</h1>
                                     </div>
                                 </div>
                             </div>
