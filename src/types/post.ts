@@ -13,6 +13,10 @@ export interface PostInfo {
     };
 }
 
+export interface Post extends PostInfo {
+    content: string;
+}
+
 export interface Pagination {
     currentPage: number;
     limit: number;
@@ -23,3 +27,5 @@ export interface Pagination {
 export interface PostListResponse extends Response<PostInfo[]> {
     pagination: Pagination;
 }
+
+export type PostResponse = Response<Post>;
