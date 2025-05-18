@@ -1,0 +1,9 @@
+@import "@/styles/utils";
+
+.blog-links {
+    padding: 80px 0px;
+    display:none;
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+        display: block;
+    }
+}
