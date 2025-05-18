@@ -5,9 +5,21 @@
     width: fit-content;
     padding: 8px 16px;
     text-decoration: none;
-    outline: 1px solid $black;
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: var(--main-color);
     outline-offset: -1px;
-    color: map-get($theme-colors, "gray");
+    color: var(--text-color);
     border-radius: calc(infinity * 1px);
     font-weight: 500;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    &:hover {
+        color: $white;
+        background-color: var(--main-color);
+        outline-color: var(--main-color);
+        & img {
+            transition: filter 0.2s ease-in-out;
+            filter: brightness(0) invert(100%);
+        }
+    }
 }

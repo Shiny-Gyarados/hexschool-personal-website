@@ -28,12 +28,12 @@
             border: none;
             padding: 11px 16px;
         }
-        & button[type="submit"] {
-            color: $primary;
-            outline: 1px solid $primary;
-            border-radius: calc(infinity * 1px);
-            font-weight: bold;
-        }
+        // & button[type="submit"] {
+        //     color: $primary;
+        //     outline: 1px solid $primary;
+        //     border-radius: calc(infinity * 1px);
+        //     font-weight: bold;
+        // }
     }
     @media (min-width: map-get($grid-breakpoints, "md")) {
         padding: 24px;

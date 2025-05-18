@@ -1,4 +1,5 @@
 import Title from "@/components/atoms/Title";
+import ReadMoreLink from "@/components/atoms/ReadMoreLink";
 
 import "./email-subscription-form.scss";
 
@@ -36,8 +37,10 @@ function EmailSubscriptionForm() {
                                     className="fz-4 mb-6 w-100"
                                     autoComplete="email"
                                 />
-                                <button type="submit" className="fz-4 px-4 py-2">
-                                    啟動訂閱
+                                <button type="submit">
+                                    <ReadMoreLink isLink={false} mainColor="#0027d5" textColor="#0027d5">
+                                        啟動訂閱
+                                    </ReadMoreLink>
                                 </button>
                             </form>
                         </div>

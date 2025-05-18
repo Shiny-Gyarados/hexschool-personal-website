@@ -77,6 +77,7 @@ function SuccessCaseForConsulting() {
                                 <ReadMoreLink
                                     href="mailto:alysewang@hexschool.com"
                                     className="success-consulting__contact-link"
+                                    mainColor="#0027d5"
                                 >
                                     立即預約諮詢
                                 </ReadMoreLink>

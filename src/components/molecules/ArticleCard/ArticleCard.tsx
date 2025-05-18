@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import ReadMoreLink from "@/components/atoms/ReadMoreLink";
 import { BASE_NAME } from "@/configs/global_configs";
 import type { PostInfo } from "@/types/post";
 import "./article-card.scss";
@@ -29,12 +30,7 @@ function ArticleCard({ data: { frontmatter, id } }: ArticleCardProps) {
                 </ul>
                 <h3 className="article-card__title fw-bold line-clamp-2">{frontmatter.title}</h3>
                 <p className="article-card__description line-clamp-2">{frontmatter.description}</p>
-                <Link
-                    to={`/post/${id}`}
-                    className="article-card__read-more d-inline-block w-fit px-4 py-2 text-decoration-none"
-                >
-                    閱讀內文
-                </Link>
+                <ReadMoreLink to={`/post/${id}`}>閱讀內文</ReadMoreLink>
             </div>
         </div>
     );
