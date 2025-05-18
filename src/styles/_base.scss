@@ -18,6 +18,19 @@
         "Noto Color Emoji";
 }
 
+html code[data-theme*=" "],
+html code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+    font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html.dark code[data-theme*=" "],
+html.dark code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+}
+
 button {
     padding: 0;
     margin: 0;
