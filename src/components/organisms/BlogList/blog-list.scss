@@ -2,6 +2,7 @@
 
 .blog-list {
     padding: $spacer * 4 0px;
+    border: 1px solid map-get($grays, "600");
     .blog-list__search-bar {
         margin-bottom: 40px;
     }
