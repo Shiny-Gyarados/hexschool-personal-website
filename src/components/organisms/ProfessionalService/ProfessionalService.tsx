@@ -5,7 +5,7 @@ import "./professional-service.scss";
 const professionalServiceDatas = [
     {
         id: 1,
-        imgSrc: `${BASE_NAME}/resume-checking.png`,
+        imgSrc: `${BASE_NAME}/images/resume-checking.webp`,
         imgAlt: "履歷健檢",
         title: "履歷健檢",
         description:
@@ -13,14 +13,14 @@ const professionalServiceDatas = [
     },
     {
         id: 2,
-        imgSrc: `${BASE_NAME}/online-console.png`,
+        imgSrc: `${BASE_NAME}/images/online-console.webp`,
         imgAlt: "線上諮詢",
         title: "線上諮詢",
         description: "想快速解決前端學習瓶頸，或需要專業職涯指引？透過線上一對一諮詢，我將協助你更有方向地邁進。",
     },
     {
         id: 3,
-        imgSrc: `${BASE_NAME}/web-development.png`,
+        imgSrc: `${BASE_NAME}/images/web-development.webp`,
         imgAlt: "網頁開發",
         title: "網頁開發",
         description:
@@ -28,7 +28,7 @@ const professionalServiceDatas = [
     },
     {
         id: 4,
-        imgSrc: `${BASE_NAME}/training.png`,
+        imgSrc: `${BASE_NAME}/images/training.webp`,
         imgAlt: "企業內訓",
         title: "企業內訓",
         description:

@@ -15,28 +15,28 @@ export interface PodcastItem {
 const podcastList: PodcastItem[] = [
     {
         id: 1,
-        avatar: `${BASE_NAME}/podcast-avatar1.png`,
+        avatar: `${BASE_NAME}/images/podcast-avatar1.webp`,
         title: "無經驗到前端工程師 Offer",
         mainPoints: ["打造前端專案與履歷亮點", "深度強化面試表現"],
         link: "#",
     },
     {
         id: 2,
-        avatar: `${BASE_NAME}/podcast-avatar2.png`,
+        avatar: `${BASE_NAME}/images/podcast-avatar2.webp`,
         title: "轉職迷茫到明確學習規劃",
         mainPoints: ["制訂階段性目標與時間安排", "鼓勵參與前端社群或活動"],
         link: "#",
     },
     {
         id: 3,
-        avatar: `${BASE_NAME}/podcast-avatar3.png`,
+        avatar: `${BASE_NAME}/images/podcast-avatar3.webp`,
         title: "面試緊張到從容應對",
         mainPoints: ["透過面試模擬找出常犯的邏輯漏洞", "討論遇到不熟悉議題時的回應方式"],
         link: "#",
     },
     {
         id: 4,
-        avatar: `${BASE_NAME}/podcast-avatar4.png`,
+        avatar: `${BASE_NAME}/images/podcast-avatar4.webp`,
         title: "面試緊張到從容應對",
         mainPoints: ["擬定進階框架或技術研究目標", "培養跨團隊溝通與簡報能力"],
         link: "#",
@@ -55,12 +55,15 @@ function SuccessCaseForConsulting() {
                     <div className="col-12 col-md-7">
                         <div className="success-consulting__image-wrap p-6">
                             <picture>
-                                <source media="(min-width: 768px)" srcSet={`${BASE_NAME}/success-consulting.png`} />
+                                <source
+                                    media="(min-width: 768px)"
+                                    srcSet={`${BASE_NAME}/images/success-consulting.webp`}
+                                />
                                 <source
                                     media="(max-width: 767px)"
-                                    srcSet={`${BASE_NAME}/success-consulting-mobile.png`}
+                                    srcSet={`${BASE_NAME}/images/success-consulting-mobile.webp`}
                                 />
-                                <img src={`${BASE_NAME}/success-consulting.png`} alt="職涯諮詢成功案例示意圖" />
+                                <img src={`${BASE_NAME}/images/success-consulting.webp`} alt="職涯諮詢成功案例示意圖" />
                             </picture>
                         </div>
                     </div>
