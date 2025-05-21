@@ -24,6 +24,7 @@ function BlogList() {
     // debounce 後要傳給 api 的值
     const [searchValueForQuery, setSearchValueForQuery] = useState(searchValue);
     const timeRef = useRef<NodeJS.Timeout | null>(null);
+    const mountRef = useRef<boolean>(false);
     const { data, isFetching, isError, error } = useQuery({
         queryKey: [
             "postList",
@@ -47,22 +48,26 @@ function BlogList() {
         setSearchValue(newValue);
     }
     useEffect(() => {
-        timeRef.current = setTimeout(() => {
-            const hash = window.location.hash;
-            const [path, rawQuery = ""] = hash.slice(1).split("?");
-            const params = new URLSearchParams(rawQuery);
-            params.set("page", "1");
-            if (searchValue) {
-                params.set("search", searchValue);
-            } else {
-                params.delete("search");
-            }
+        if (mountRef.current) {
+            timeRef.current = setTimeout(() => {
+                const hash = window.location.hash;
+                const [path, rawQuery = ""] = hash.slice(1).split("?");
+                const params = new URLSearchParams(rawQuery);
+                params.set("page", "1");
+                if (searchValue) {
+                    params.set("search", searchValue);
+                } else {
+                    params.delete("search");
+                }
 
-            const newHash = `#${path}?${params.toString()}`;
-            window.history.replaceState({}, "", newHash);
-            setPage(1);
-            setSearchValueForQuery(searchValue);
-        }, 300);
+                const newHash = `#${path}?${params.toString()}`;
+                window.history.replaceState({}, "", newHash);
+                setPage(1);
+                setSearchValueForQuery(searchValue);
+            }, 300);
+        } else {
+            mountRef.current = true;
+        }
         return () => {
             if (timeRef.current) {
                 clearTimeout(timeRef.current);
