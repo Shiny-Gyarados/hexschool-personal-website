@@ -79,9 +79,48 @@ const MDXComponents: Partial<Components> = {
     figcaption: () => null,
 };
 
+const PostContentSkeleton = () => {
+    return (
+        <article className="post-content__article placeholder-glow">
+            <p className="placeholder col-12 mb-4"></p>
+            <p className="placeholder col-10 mb-4"></p>
+            <p className="placeholder col-11 mb-4"></p>
+            <div className="my-6 placeholder col-12" style={{ height: "200px" }}></div>
+            <h2 className="placeholder col-6 mb-6 mt-9"></h2>
+            <p className="placeholder col-12 mb-4"></p>
+            <p className="placeholder col-9 mb-4"></p>
+            <div className="my-6 placeholder col-12" style={{ height: "150px" }}></div>
+            <p className="placeholder col-11 mb-4"></p>
+            <p className="placeholder col-10 mb-4"></p>
+
+            <h2 className="placeholder col-7 mb-6 mt-9"></h2>
+            <p className="placeholder col-12 mb-4"></p>
+            <p className="placeholder col-11 mb-4"></p>
+            <p className="placeholder col-10 mb-4"></p>
+            <div className="my-6 placeholder col-12" style={{ height: "180px" }}></div>
+
+            <h3 className="placeholder col-5 mb-3 mt-6"></h3>
+            <p className="placeholder col-12 mb-4"></p>
+            <p className="placeholder col-11 mb-4"></p>
+
+            <ul className="my-4">
+                <li className="placeholder col-10 mb-2"></li>
+                <li className="placeholder col-8 mb-2"></li>
+                <li className="placeholder col-9 mb-2"></li>
+            </ul>
+
+            <h3 className="placeholder col-6 mb-3 mt-6"></h3>
+            <p className="placeholder col-12 mb-4"></p>
+            <p className="placeholder col-9 mb-4"></p>
+            <div className="my-6 placeholder col-12" style={{ height: "120px" }}></div>
+            <p className="placeholder col-10 mb-4"></p>
+        </article>
+    );
+};
+
 function PostContent(): React.JSX.Element {
     const { id } = useParams();
-    const { data, isLoading, isError, error } = useQuery({
+    const { data, isLoading, isError, error, refetch } = useQuery({
         queryKey: ["post", id],
         queryFn: () => getPostById({ id: id ?? "-1" }),
         select: (data) => data.data,
@@ -91,9 +130,28 @@ function PostContent(): React.JSX.Element {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-12 col-lg-9 col-xl-6">
-                        <article className="post-content__article">
-                            {data?.content && <MarkdownComponent rawMD={data?.content} components={MDXComponents} />}
-                        </article>
+                        {isLoading ? (
+                            <PostContentSkeleton />
+                        ) : isError ? (
+                            <div className="p-6 d-flex flex-column gap-3 align-items-center">
+                                <p className="text-danger text-center">{error.message}</p>
+                                <button className="btn btn-danger" onClick={() => refetch()}>
+                                    重新整理
+                                </button>
+                            </div>
+                        ) : (
+                            data && (
+                                <article className="post-content__article">
+                                    {data?.content && (
+                                        <MarkdownComponent
+                                            rawMD={data?.content}
+                                            components={MDXComponents}
+                                            loadingSkeleton={<PostContentSkeleton />}
+                                        />
+                                    )}
+                                </article>
+                            )
+                        )}
                         <div className="post-content__article-footer d-flex justify-content-between">
                             <ReadMoreLink
                                 className="d-flex align-items-center gap-1"

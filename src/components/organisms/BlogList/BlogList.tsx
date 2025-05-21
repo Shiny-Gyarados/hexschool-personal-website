@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import ArticleCard from "@/components/molecules/ArticleCard";
 import SearchBar from "@/components/atoms/SearchBar";
 import Pagination from "@/components/atoms/Pagination";
+import ArticleCardSkeleton from "@/components/molecules/ArticleCardSkeleton";
 import "./blog-list.scss";
 
 const PAGE = 1;
@@ -25,7 +26,7 @@ function BlogList() {
     const [searchValueForQuery, setSearchValueForQuery] = useState(searchValue);
     const timeRef = useRef<NodeJS.Timeout | null>(null);
     const mountRef = useRef<boolean>(false);
-    const { data, isFetching, isError, error } = useQuery({
+    const { data, isFetching, isError, error, refetch } = useQuery({
         queryKey: [
             "postList",
             `page=${page}`,
@@ -84,9 +85,20 @@ function BlogList() {
                 </div>
                 {isFetching ? (
                     // todo: 要顯示 skeleton
-                    <p>Loading...</p>
+                    <ul className="blog-list__list row list-unstyled">
+                        {Array.from({ length: 10 }).map((_, index) => (
+                            <li key={index} className="blog-list__item col-md-12 col-lg-6 col-xl-4">
+                                <ArticleCardSkeleton />
+                            </li>
+                        ))}
+                    </ul>
                 ) : isError ? (
-                    <p>{error.message}</p>
+                    <div className="p-6 d-flex flex-column gap-3 align-items-center">
+                        <p className="text-danger text-center">{error.message}</p>
+                        <button className="btn btn-danger" onClick={() => refetch()}>
+                            重新整理
+                        </button>
+                    </div>
                 ) : (
                     // todo 要過濾最新的那篇文章
                     Array.isArray(data?.data) && (

@@ -7,6 +7,7 @@ import ArrowLeftButtonSVG from "@/components/atoms/ArrowLeftButtonSVG";
 import ArrowRightButtonSVG from "@/components/atoms/ArrowRightButtonSVG";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { DEVICE_BREAKPOINT } from "@/types/common";
+import ArticleCardSkeleton from "@/components/molecules/ArticleCardSkeleton";
 import "./blog-top-picks.scss";
 
 const PAGE = 1;
@@ -18,7 +19,7 @@ function BlogTopPicks(): React.JSX.Element {
     const isDesktop = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.XL}px)`);
     const isTablet = useMediaQuery(`(min-width: ${DEVICE_BREAKPOINT.LG}px)`);
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["postList", `page=${PAGE}`, `limit=${LIMIT}`, `sort=${SORT}`, `order=${ORDER}`, `search=`,],
+        queryKey: ["postList", `page=${PAGE}`, `limit=${LIMIT}`, `sort=${SORT}`, `order=${ORDER}`, `search=`],
         queryFn: () => getPostList({ page: `${PAGE}`, limit: `${LIMIT}`, sort: SORT, order: ORDER }),
         select: (data) => data.data,
     });
@@ -48,7 +49,13 @@ function BlogTopPicks(): React.JSX.Element {
                 <div className="blog-top-picks__content position-relative">
                     <div className="overflow-hidden">
                         {isLoading ? (
-                            <p>Loading...</p>
+                            <ul className="blog-top-picks__list-wrap row list-unstyled flex-nowrap mb-0">
+                                {Array.from({ length: 10 }).map((_, index) => (
+                                    <li key={index} className="col-md-12 col-lg-6 col-xl-4">
+                                        <ArticleCardSkeleton />
+                                    </li>
+                                ))}
+                            </ul>
                         ) : isError ? (
                             <p>{error.message}</p>
                         ) : (
