@@ -12,7 +12,7 @@ function PostInfo(): React.JSX.Element {
         select: (data) => data.data,
     });
     return (
-        <div className="post-info container-fluid">
+        <section className="post-info container-fluid">
             <div className="row">
                 {isLoading ? (
                     <>
@@ -79,7 +79,7 @@ function PostInfo(): React.JSX.Element {
                     )
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 

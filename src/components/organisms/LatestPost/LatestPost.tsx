@@ -11,7 +11,7 @@ function LatestPost(): React.JSX.Element {
         select: (data) => data.data,
     });
     return (
-        <div className="latest-post container-fluid">
+        <section className="latest-post container-fluid">
             <div className="row">
                 {isLoading ? (
                     <>
@@ -87,7 +87,7 @@ function LatestPost(): React.JSX.Element {
                     )
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 

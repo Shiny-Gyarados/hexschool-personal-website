@@ -76,7 +76,7 @@ function BlogList() {
         };
     }, [searchValue]);
     return (
-        <div className="blog-list">
+        <section className="blog-list">
             <div className="container">
                 <div className="blog-list__search-bar row">
                     <div className="col-12 col-lg-6 col-xl-4">
@@ -125,7 +125,7 @@ function BlogList() {
                     />
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 
