@@ -8,7 +8,7 @@ import "./podcast-card.scss";
 const downToUpOptions: UseTriggerAnimationOptions = {
     startState: {
         opacity: 0,
-        y: 100,
+        y: 50,
     },
     endState: {
         opacity: 1,
@@ -23,11 +23,11 @@ interface PodcastCardProps {
 }
 
 function PodcastCard({ podcastItem }: PodcastCardProps) {
-    const podcastCardRef = useRef<HTMLDivElement>(null);
+    const podcastCardRef = useRef<HTMLLIElement>(null);
     useTriggerAnimation(podcastCardRef, downToUpOptions);
     return (
-        <li key={podcastItem.id} className="col-12 col-md-6 col-xxl-3 mb-6">
-            <div className="podcast-card" ref={podcastCardRef}>
+        <li key={podcastItem.id} className="col-12 col-md-6 col-xxl-3 mb-6" ref={podcastCardRef}>
+            <div className="podcast-card">
                 <div className="mb-4">
                     <img src={podcastItem.avatar} alt={`podcast 頭像${podcastItem.id}`} />
                 </div>
