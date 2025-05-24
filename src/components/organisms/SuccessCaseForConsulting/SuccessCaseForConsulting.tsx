@@ -1,9 +1,37 @@
+import { useRef } from "react";
 import Title from "@/components/atoms/Title";
 import ReadMoreLink from "@/components/atoms/ReadMoreLink";
 import { BASE_NAME } from "@/configs/global_configs";
 import PodcastCard from "@/components/molecules/PodcastCard";
+import useTriggerAnimation from "@/hooks/useTriggerAnimation";
+import type { UseTriggerAnimationOptions } from "@/hooks/useTriggerAnimation";
 import "./success-case-for-consulting.scss";
 
+const leftToRightOptions: UseTriggerAnimationOptions = {
+    startState: {
+        opacity: 0,
+        x: -50,
+    },
+    endState: {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power2.out",
+    },
+};
+
+const rightToLeftOptions: UseTriggerAnimationOptions = {
+    startState: {
+        opacity: 0,
+        x: 50,
+    },
+    endState: {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power2.out",
+    },
+};
 export interface PodcastItem {
     id: number;
     avatar: string;
@@ -44,8 +72,14 @@ const podcastList: PodcastItem[] = [
 ];
 
 function SuccessCaseForConsulting() {
+    const successConsultingImageWrapRef = useRef<HTMLDivElement>(null);
+    const successConsultingContentRef = useRef<HTMLDivElement>(null);
+    const successConsultingContactRef = useRef<HTMLDivElement>(null);
+    useTriggerAnimation(successConsultingImageWrapRef, leftToRightOptions);
+    useTriggerAnimation(successConsultingContentRef, rightToLeftOptions);
+    useTriggerAnimation(successConsultingContactRef, rightToLeftOptions);
     return (
-        <section className="success-case-for-consulting">
+        <section className="success-case-for-consulting overflow-hidden">
             <div className="container">
                 <Title>
                     <span className="d-block d-md-inline">職涯諮詢</span>
@@ -53,7 +87,7 @@ function SuccessCaseForConsulting() {
                 </Title>
                 <div className="success-case-for-consulting__introduction row align-items-center">
                     <div className="col-12 col-md-7">
-                        <div className="success-consulting__image-wrap p-6">
+                        <div className="success-consulting__image-wrap p-6" ref={successConsultingImageWrapRef}>
                             <picture>
                                 <source
                                     media="(min-width: 768px)"
@@ -69,13 +103,16 @@ function SuccessCaseForConsulting() {
                     </div>
                     <div className="col-12 col-md-5">
                         <div className="success-consulting__content-wrap">
-                            <div className="success-consulting__content col-12 bg-white">
+                            <div
+                                className="success-consulting__content col-12 bg-white"
+                                ref={successConsultingContentRef}
+                            >
                                 <p className="fw-bold">
                                     在職涯發展的關鍵轉折點上，適時的協助與正確的方向至關重要。藉由職涯諮詢，我可以幫助你加速釐清目標、建立更全面的技術與軟實力，並有效
                                     <strong>突破原有的舒適圈</strong>。
                                 </p>
                             </div>
-                            <div className="success-consulting__contact">
+                            <div className="success-consulting__contact" ref={successConsultingContactRef}>
                                 <p className="fw-bold mb-6">期待在下一個新機會中，我能與你一起攜手邁向更高峰！</p>
                                 <ReadMoreLink
                                     href="mailto:alysewang@hexschool.com"
