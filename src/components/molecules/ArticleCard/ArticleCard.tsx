@@ -29,7 +29,7 @@ function ArticleCard({ data: { frontmatter, id } }: ArticleCardProps) {
                     ))}
                 </ul>
                 <h3 className="article-card__title fw-bold line-clamp-2">{frontmatter.title}</h3>
-                <p className="article-card__description line-clamp-2">{frontmatter.description}</p>
+                <p className="line-clamp-2">{frontmatter.description}</p>
                 <ReadMoreLink href={`/post/${id}`}>閱讀內文</ReadMoreLink>
             </div>
         </div>
