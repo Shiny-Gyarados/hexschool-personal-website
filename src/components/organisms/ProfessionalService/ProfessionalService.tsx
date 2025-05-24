@@ -1,8 +1,17 @@
 import { BASE_NAME } from "@/configs/global_configs";
 import Title from "@/components/atoms/Title";
+import ProfessionalServiceCard from "@/components/molecules/ProfessionalServiceCard";
 import "./professional-service.scss";
 
-const professionalServiceDatas = [
+export interface ProfessionalServiceData {
+    id: number;
+    imgSrc: string;
+    imgAlt: string;
+    title: string;
+    description: string;
+}
+
+const professionalServiceDatas: ProfessionalServiceData[] = [
     {
         id: 1,
         imgSrc: `${BASE_NAME}/images/resume-checking.webp`,
@@ -40,26 +49,33 @@ function ProfessionalService(): React.JSX.Element {
     return (
         <section className="professional-service container">
             <Title>專業服務與方案</Title>
-            {professionalServiceDatas.map((professionalServiceData) => {
+            {professionalServiceDatas.map((professionalServiceData, index) => {
                 return (
-                    <div className="professional-service__item row align-items-center" key={professionalServiceData.id}>
-                        <div className="col-12 col-lg-6">
-                            <div className="professional-service__image-wrap">
-                                <img src={professionalServiceData.imgSrc} alt={professionalServiceData.imgAlt} />
-                            </div>
-                        </div>
-                        <div className="professional-service__content-wrap position-relative z-1">
-                            <div className="professional-service__content p-6 bg-white">
-                                <h3 className="professional-service__content-title fs-3 fw-bold lh-base">
-                                    {professionalServiceData.title}
-                                </h3>
-                                <p className="professional-service__content-description lh-base text-gray mb-0">
-                                    {professionalServiceData.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ProfessionalServiceCard
+                        key={professionalServiceData.id}
+                        professionalServiceData={professionalServiceData}
+                        index={index}
+                    />
                 );
+                // return (
+                //     <div className="professional-service__item row align-items-center" key={professionalServiceData.id}>
+                //         <div className="col-12 col-lg-6">
+                //             <div className="professional-service__image-wrap">
+                //                 <img src={professionalServiceData.imgSrc} alt={professionalServiceData.imgAlt} />
+                //             </div>
+                //         </div>
+                //         <div className="professional-service__content-wrap position-relative z-1">
+                //             <div className="professional-service__content p-6 bg-white">
+                //                 <h3 className="professional-service__content-title fs-3 fw-bold lh-base">
+                //                     {professionalServiceData.title}
+                //                 </h3>
+                //                 <p className="professional-service__content-description lh-base text-gray mb-0">
+                //                     {professionalServiceData.description}
+                //                 </p>
+                //             </div>
+                //         </div>
+                //     </div>
+                // );
             })}
             <div className="professional-service__contact">
                 <h3 className="professional-service__contact-title fs-3 fw-bold lh-base">聯繫我，取得更多資訊！</h3>
