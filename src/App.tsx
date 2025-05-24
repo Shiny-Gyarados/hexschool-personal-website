@@ -14,8 +14,8 @@ const Post = lazy(() => import("@/components/pages/Post"));
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            staleTime: 1000 * 60 * 5,
-            gcTime: 1000 * 60 * 10,
+            staleTime: 1000 * 60 * 30,
+            gcTime: 1000 * 60 * 40,
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
             refetchInterval: false,
