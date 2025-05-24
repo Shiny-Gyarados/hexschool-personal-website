@@ -7,12 +7,14 @@ import "./banner-card.scss";
 interface BannerCardProps {
     name: string;
     job: string;
+    isAnimationAllowed?: boolean;
 }
 
-function BannerCard({ name, job }: BannerCardProps): React.JSX.Element {
+function BannerCard({ name, job, isAnimationAllowed = true }: BannerCardProps): React.JSX.Element {
     const bannerCardRef = useRef<HTMLDivElement>(null);
     useGSAP(
         () => {
+            if (!isAnimationAllowed) return;
             const animationStartState = {
                 opacity: 0,
                 y: 100,
@@ -44,7 +46,7 @@ function BannerCard({ name, job }: BannerCardProps): React.JSX.Element {
                 },
             });
         },
-        { scope: bannerCardRef }
+        { scope: bannerCardRef, dependencies: [isAnimationAllowed] }
     );
     return (
         <section className="container-fluid">
