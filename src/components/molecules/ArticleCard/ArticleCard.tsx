@@ -16,7 +16,7 @@ function ArticleCard({ data: { frontmatter, id } }: ArticleCardProps) {
     const day = useMemo(() => date.getDate(), [date]);
     return (
         <div className="article-card d-flex flex-column">
-            <div className="article-card__image-wrap mb-4">
+            <div className="article-card__image-wrap mb-4 overflow-hidden">
                 <img src={`${BASE_NAME}${frontmatter.image}`} alt={frontmatter.title} />
             </div>
             <div className="article-card__content flex-grow-1 d-flex flex-column flex-grow-1">
