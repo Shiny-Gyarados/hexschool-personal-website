@@ -87,3 +87,8 @@
         padding: 24px;
     }
 }
+
+.hidden-link {
+    visibility: hidden;
+    pointer-events: none;
+}

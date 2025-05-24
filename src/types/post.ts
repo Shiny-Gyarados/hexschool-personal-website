@@ -15,6 +15,8 @@ export interface PostInfo {
 
 export interface Post extends PostInfo {
     content: string;
+    prevId: number | null;
+    nextId: number | null;
 }
 
 export interface Pagination {

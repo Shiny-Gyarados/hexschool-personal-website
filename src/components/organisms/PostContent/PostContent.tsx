@@ -5,6 +5,7 @@ import CodeBlockCopyButton from "@/components/atoms/CodeBlockCopyButton";
 import { BASE_NAME } from "@/configs/global_configs";
 import getPostById from "@/api/getPostById";
 import ReadMoreLink from "@/components/atoms/ReadMoreLink";
+import clsx from "clsx";
 import type { Components } from "rehype-react";
 import { ReactElement } from "react";
 import "./post-content.scss";
@@ -154,12 +155,10 @@ function PostContent(): React.JSX.Element {
                         )}
                         <div className="post-content__article-footer d-flex justify-content-between">
                             <ReadMoreLink
-                                className="d-flex align-items-center gap-1"
-                                href={
-                                    id && !Number.isNaN(parseInt(id))
-                                        ? `/post/${parseInt(id) - 1 < 1 ? 1 : parseInt(id) - 1}`
-                                        : "/post/1"
-                                }
+                                className={clsx("d-flex align-items-center gap-1", {
+                                    "hidden-link": !data?.prevId,
+                                })}
+                                href={data?.prevId ? `/post/${data?.prevId}` : "/post/1"}
                             >
                                 <div className="post-content__article-footer__prev d-flex align-items-center justify-content-center">
                                     <img src={`${BASE_NAME}/pagination-left.svg`} alt="previous page" />
@@ -167,8 +166,10 @@ function PostContent(): React.JSX.Element {
                                 上一篇
                             </ReadMoreLink>
                             <ReadMoreLink
-                                className="d-flex align-items-center gap-1"
-                                href={id && !Number.isNaN(parseInt(id)) ? `/post/${parseInt(id) + 1}` : "/post/1"}
+                                className={clsx("d-flex align-items-center gap-1", {
+                                    "hidden-link": !data?.nextId,
+                                })}
+                                href={data?.nextId ? `/post/${data?.nextId}` : "/post/1"}
                             >
                                 下一篇
                                 <div className="post-content__article-footer__next d-flex align-items-center justify-content-center">
