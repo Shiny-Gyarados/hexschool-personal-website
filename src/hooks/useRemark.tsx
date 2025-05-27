@@ -68,7 +68,7 @@ export default function useRemark<TFrontmatter = Record<string, unknown>>({
     useEffect(() => {
         setMarkdown(source);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [source]);
 
     return { content, fontmatter, isParsing, setMarkdown };
 }
