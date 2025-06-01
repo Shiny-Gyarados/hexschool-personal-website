@@ -33,7 +33,8 @@ Vue 3 推出的 Composition API，讓開發者能以更彈性的方式組織與�
 
 #### 函式形式的 setup：
 
-```javascript
+```vue
+<script>
 export default {
     setup() {
         const count = ref(0);
@@ -49,11 +50,12 @@ export default {
         };
     },
 };
+</script>
 ```
 
 #### 使用 <script setup>（推薦）：
 
-```javascript
+```vue
 <script setup>
 import { ref } from 'vue';
 
@@ -83,7 +85,8 @@ Vue 3 提供了兩個主要的響應式 API：`ref` 和 `reactive`。理解它�
 
 #### ref：適用於任何類型的數據
 
-```javascript
+```vue
+<script setup>
 import { ref } from "vue";
 
 // 基本類型
@@ -101,11 +104,13 @@ count.value++; // 1
 
 // 物件內部也是響應式的
 user.value.name = "Vue School"; // 會觸發視圖更新
+</script>
 ```
 
 #### reactive：只適用於物件類型
 
-```javascript
+```vue
+<script setup>
 import { reactive } from "vue";
 
 // 物件類型
@@ -118,6 +123,7 @@ user.name = "Vue School"; // 會觸發視圖更新
 
 // 但不能重新賦值整個物件！這會丟失響應性
 user = reactive({ id: 2, name: "New User" }); // ❌ 錯誤做法
+</script>
 ```
 
 #### 什麼時候用 ref，什麼時候用 reactive？
@@ -137,7 +143,8 @@ user = reactive({ id: 2, name: "New User" }); // ❌ 錯誤做法
 
 #### computed：計算屬性
 
-```javascript
+```vue
+<script setup>
 import { ref, computed } from "vue";
 
 const price = ref(100);
@@ -159,11 +166,13 @@ const totalWithTax = computed({
 // 使用
 console.log(total.value); // 200
 totalWithTax.value = 330; // 會修改 price
+</script>
 ```
 
 #### watch：監聽變化
 
-```javascript
+```vue
+<script setup>
 import { ref, watch } from "vue";
 
 const searchQuery = ref("");
@@ -205,11 +214,13 @@ const lastName = ref("Doe");
 watch([firstName, lastName], ([newFirst, newLast], [oldFirst, oldLast]) => {
     console.log(`姓名從 ${oldFirst} ${oldLast} 變成了 ${newFirst} ${newLast}`);
 });
+</script>
 ```
 
 #### watchEffect：自動追蹤依賴
 
-```javascript
+```vue
+<script setup>
 import { ref, watchEffect } from "vue";
 
 const id = ref(1);
@@ -221,6 +232,7 @@ watchEffect(async () => {
     console.log(`獲取到 ID 為 ${id.value} 的用戶: ${user.value.name}`);
     // 當 id.value 變化時，此函式會重新執行
 });
+</script>
 ```
 
 ## 進階應用
@@ -231,7 +243,8 @@ Composable 是 Vue 3 最強大的特性之一，它讓我們能夠輕鬆地抽�
 
 #### 基本的計數器 Hook
 
-```javascript
+```vue
+<script setup>
 // useCounter.js
 import { ref } from "vue";
 
@@ -263,11 +276,13 @@ import { useCounter } from "./useCounter";
 
 // 可以在多個元件中重用
 const { count, increment, decrement, reset } = useCounter(10, 2);
+</script>
 ```
 
 #### 表單處理 Hook
 
-```javascript
+```vue
+<script setup>
 // useForm.js
 import { reactive, computed } from "vue";
 
@@ -288,7 +303,7 @@ export function useForm(initialValues = {}, validationRules = {}) {
                     break;
                 }
 
-                if (ruleName === "minLength" && formData[field].length < ruleValue) {
+                if (ruleName === "minLength" && formData[field].length <script ruleValue) {
                     formErrors[field] = `此欄位最少需要 ${ruleValue} 個字元`;
                     break;
                 }
@@ -333,11 +348,13 @@ function onSubmit() {
         console.log("表單提交", formData);
     }
 }
+</script>
 ```
 
 #### API 請求的 Hook
 
-```javascript
+```vue
+<script setup>
 // useFetch.js
 import { ref, computed } from "vue";
 
@@ -399,6 +416,7 @@ function refreshData() {
 function fetchUserDetails(userId) {
     fetchUsers(`https://jsonplaceholder.typicode.com/users/${userId}`);
 }
+</script>
 ```
 
 ### 2. 與 Options API 比較
@@ -407,7 +425,8 @@ function fetchUserDetails(userId) {
 
 #### Options API（Vue 2 的主要方式）
 
-```javascript
+```vue
+<script>
 export default {
     data() {
         return {
@@ -434,11 +453,13 @@ export default {
         console.log("元件已建立");
     },
 };
+</script>
 ```
 
 #### 相同功能的 Composition API
 
-```javascript
+```vue
+<script>
 import { ref, computed, watch, onCreated } from "vue";
 
 export default {
@@ -474,6 +495,7 @@ export default {
         };
     },
 };
+</script>
 ```
 
 #### 優缺點比較
@@ -490,7 +512,8 @@ export default {
 
 Composition API 提供了生命週期鉤子函式，對應 Options API 中的生命週期鉤子：
 
-```javascript
+```vue
+<script>
 import {
     onBeforeMount,
     onMounted,
@@ -544,6 +567,7 @@ export default {
         return {};
     },
 };
+</script>
 ```
 
 ## 常見陷阱與解決方案
@@ -552,7 +576,8 @@ export default {
 
 ### 1. 忘記使用 .value
 
-```javascript
+```vue
+<script setup>
 const count = ref(0);
 
 // 錯誤：直接使用 ref 而沒有 .value
@@ -564,11 +589,13 @@ function increment() {
 function increment() {
     count.value++; // 正確，會更新視圖
 }
+</script>
 ```
 
 ### 2. 解構丟失響應性
 
-```javascript
+```vue
+<script setup>
 const user = reactive({ name: "Hex", age: 30 });
 
 // 錯誤：解構會丟失響應性
@@ -590,11 +617,13 @@ const age = computed({
     get: () => user.age,
     set: (value) => (user.age = value),
 });
+</script>
 ```
 
 ### 3. 過度巢狀
 
-```javascript
+```vue
+<script>
 // 不好的做法：過度巢狀
 setup() {
   const state = reactive({});
@@ -628,11 +657,13 @@ setup() {
   const { /* ... */ } = useFeature1();
   return { /* ... */ };
 }
+</script>
 ```
 
 ### 4. 未善用 composable 抽離重用邏輯
 
-```javascript
+```vue
+<script>
 // 不好的做法：在多個元件中重複相似的邏輯
 setup() {
   const searchQuery = ref('');
@@ -680,6 +711,7 @@ setup() {
   const { searchQuery, results, isLoading, error, search } = useSearch();
   return { searchQuery, results, isLoading, error, search };
 }
+</script>
 ```
 
 ## 結語
